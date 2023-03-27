@@ -14,11 +14,16 @@ export class GameComponent implements OnInit {
 
   levels = GAME_LEVELS;
   colorSet = COLOR_SET;
-  currentLevel = this.levels[1];
-  randomColors: String[] = [];
+  currentLevel = this.levels[0];
+  colorsShown: String[] = [];
+  colorsSolution: String[] = [];
+  colorSetUsed: String[] = [];
+  gameStarted = false;
+  currentColorChoice: String = '';
 
   ngOnInit(): void {
-    this.randomColors = this.generateRandomColors(this.currentLevel);
+    this.colorsSolution = this.generateRandomColors(this.currentLevel);
+    this.colorsShown = Object.assign({}, this.colorsSolution);
   }
 
   generateRandomColors(gameLevel: GameLevel): string[] {
@@ -29,6 +34,7 @@ export class GameComponent implements OnInit {
 
     // Slice the shuffled color set to get the required number of unique colors
     shuffledColorSet = shuffledColorSet.slice(0, gameLevel.numberOfColors);
+    this.colorSetUsed = shuffledColorSet;
   
     // Fill the output array with colors
     let index = 0;
@@ -41,6 +47,32 @@ export class GameComponent implements OnInit {
     }
   
     return [...colors].sort(() => Math.random() - 0.5);
+  }
+
+  start() {
+    this.colorsShown = Array(this.colorsSolution.length).fill('white');
+    this.currentColorChoice = this.colorSetUsed[0];
+    this.gameStarted = true;
+  }
+
+  selectedColorChoice(color: String) {
+    this.currentColorChoice = color;
+  }
+
+  selectedCell(index: number) {
+    if(this.gameStarted) {
+      this.colorsShown[index] = this.currentColorChoice;
+    }
+  }
+
+  submit() {
+    console.log('this.colorSetUsed: ', this.colorSetUsed);
+    console.log('this.colorsShown: ', this.colorsShown);
+    if(this.colorSetUsed.toString() === this.colorsShown.toString()) {
+      alert('You win!');
+    } else {
+      alert('Incorrect, try again.');
+    }
   }
   
   
