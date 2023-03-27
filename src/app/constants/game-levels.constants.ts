@@ -4,7 +4,7 @@ export const GAME_LEVELS: GameLevel[] = [
     {
       level: 1,
       squares: 4,
-      numberOfColors: 4,
+      numberOfColors: 2,
     },
     {
       level: 2,

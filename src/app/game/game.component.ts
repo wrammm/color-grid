@@ -14,7 +14,8 @@ export class GameComponent implements OnInit {
 
   levels = GAME_LEVELS;
   colorSet = COLOR_SET;
-  currentLevel = this.levels[0];
+  currentLevelIndex = 0;
+  currentLevel = this.levels[this.currentLevelIndex];
   colorsShown: String[] = [];
   colorsSolution: String[] = [];
   colorSetUsed: String[] = [];
@@ -22,6 +23,11 @@ export class GameComponent implements OnInit {
   currentColorChoice: String = '';
 
   ngOnInit(): void {
+    this.startGame();
+  }
+
+  startGame() {
+    this.gameStarted = false;
     this.colorsSolution = this.generateRandomColors(this.currentLevel);
     this.colorsShown = Object.assign({}, this.colorsSolution);
   }
@@ -68,11 +74,23 @@ export class GameComponent implements OnInit {
   submit() {
     console.log('this.colorSetUsed: ', this.colorSetUsed);
     console.log('this.colorsShown: ', this.colorsShown);
-    if(this.colorSetUsed.toString() === this.colorsShown.toString()) {
+    if(this.colorsSolution.toString() === this.colorsShown.toString()) {
       alert('You win!');
+      this.goToNextLevel();
     } else {
       alert('Incorrect, try again.');
+      this.replaySameLevel();
     }
+  }
+
+  goToNextLevel() {
+    this.currentLevelIndex ++;
+    this.currentLevel = this.levels[this.currentLevelIndex];
+    this.startGame();
+  }
+
+  replaySameLevel() {
+    this.startGame();
   }
   
   

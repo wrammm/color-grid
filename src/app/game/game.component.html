@@ -1,10 +1,10 @@
 <div class="game-container">
     <div class="game-header">
         <h2>Level {{currentLevel.level}}</h2>
-        <button *ngIf="!gameStarted" (click)="start()">Start</button>
-        <h2 *ngIf="gameStarted">Fill cells with original color set.</h2>
-        <button *ngIf="gameStarted" (click)="submit()">Submit</button>
-        <div class="colors-used-container" *ngIf="gameStarted">
+        <button *ngIf="gameStarted == false" (click)="start()">Start</button>
+        <h2 *ngIf="gameStarted == true">Fill cells with original color set.</h2>
+        <button *ngIf="gameStarted == true" (click)="submit()">Submit</button>
+        <div class="colors-used-container" *ngIf="gameStarted == true">
             <div *ngFor="let color of colorSetUsed">
                 <div class="colors-used-child">
                     <button [style.backgroundColor]="color" (click)="selectedColorChoice(color)"></button>
