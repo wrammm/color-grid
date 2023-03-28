@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GameLevel } from '../classes/game-level';
 import { COLOR_SET } from '../constants/color-set';
 import { GAME_LEVELS } from '../constants/game-levels.constants';
+import { LevelService } from '../services/level.service';
 
 @Component({
   selector: 'app-game',
@@ -10,7 +12,7 @@ import { GAME_LEVELS } from '../constants/game-levels.constants';
 })
 export class GameComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router, private levelService: LevelService) { }
 
   levels = GAME_LEVELS;
   colorSet = COLOR_SET;
@@ -28,30 +30,35 @@ export class GameComponent implements OnInit {
 
   startGame() {
     this.gameStarted = false;
+    this.levels = this.levelService.getLevelData();
+    this.currentLevelIndex = this.levelService.getCurrentLevelIndex();
+    this.currentLevel = this.levels[this.currentLevelIndex];
     this.colorsSolution = this.generateRandomColors(this.currentLevel);
     this.colorsShown = Object.assign({}, this.colorsSolution);
   }
 
   generateRandomColors(gameLevel: GameLevel): string[] {
     const colors: string[] = [];
-  
-     // Create a copy of the color set and shuffle it
+
+    // Create a copy of the color set and shuffle it
     let shuffledColorSet = [...this.colorSet].sort(() => Math.random() - 0.5);
 
     // Slice the shuffled color set to get the required number of unique colors
     shuffledColorSet = shuffledColorSet.slice(0, gameLevel.numberOfColors);
     this.colorSetUsed = shuffledColorSet;
-  
+
     // Fill the output array with colors
     let index = 0;
     for (let i = 0; i < gameLevel.squares; i++) {
+      console.log('index: ', index);
       colors.push(shuffledColorSet[index]);
-      if(index === gameLevel.numberOfColors - 1) {
+      if (index === gameLevel.numberOfColors - 1) {
         index = 0;
+      } else {
+        index++;
       }
-      index++;
     }
-  
+
     return [...colors].sort(() => Math.random() - 0.5);
   }
 
@@ -66,15 +73,13 @@ export class GameComponent implements OnInit {
   }
 
   selectedCell(index: number) {
-    if(this.gameStarted) {
+    if (this.gameStarted) {
       this.colorsShown[index] = this.currentColorChoice;
     }
   }
 
   submit() {
-    console.log('this.colorSetUsed: ', this.colorSetUsed);
-    console.log('this.colorsShown: ', this.colorsShown);
-    if(this.colorsSolution.toString() === this.colorsShown.toString()) {
+    if (this.colorsSolution.toString() === this.colorsShown.toString()) {
       alert('You win!');
       this.goToNextLevel();
     } else {
@@ -84,15 +89,14 @@ export class GameComponent implements OnInit {
   }
 
   goToNextLevel() {
-    this.currentLevelIndex ++;
-    this.currentLevel = this.levels[this.currentLevelIndex];
-    this.startGame();
+    this.levels[this.currentLevelIndex + 1].locked = false;
+    this.levelService.saveLevelData(this.levels);
+    this.levelService.setCurrentLevelIndex(++this.currentLevelIndex);
+    this.router.navigate(['/levels']);
   }
 
   replaySameLevel() {
     this.startGame();
   }
-  
-  
 
 }

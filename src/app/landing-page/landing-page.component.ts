@@ -7,10 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   startGame() {
-    // Navigate to the game component, assuming you have a route configured for it
-    this.router.navigate(['/game']);
+    this.router.navigate(['/levels']);
   }
 }

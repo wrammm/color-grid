@@ -1,1 +1,14 @@
-<p>level-view works!</p>
+<div class="level-wrapper">
+    <div class="level-header">
+        <div class="select-level-text">Select a Level</div>
+        <div class="select-level-animation"></div>
+    </div>
+    <div class="level-container">
+        <mat-card *ngFor="let level of levels" class="level" [class.locked]="level.locked" (click)="onLevelClick(level)">
+          <div class="level-number">{{ level.level }}</div>
+          <mat-icon *ngIf="level.locked" class="lock-icon">lock</mat-icon>
+        </mat-card>
+    </div>
+</div>
+
+  

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GameComponent } from './game/game.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LevelViewComponent } from './level-view/level-view.component';
 
 const routes: Routes = [
   {
@@ -9,10 +10,13 @@ const routes: Routes = [
     component: LandingPageComponent
   },
   {
+    path: 'levels',
+    component: LevelViewComponent
+  },
+  {
     path: 'game',
     component: GameComponent
-  },
-  // ... your other routes
+  }
 ];
 
 @NgModule({
