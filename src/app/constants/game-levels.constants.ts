@@ -1,7 +1,7 @@
 import { GameLevel } from "../classes/game-level";
 
 // all should default to false
-export const DISABLE_LEVEL_CACHE = true;
+export const DISABLE_LEVEL_CACHE = false;
 export const DISABLE_LEVEL_LOCK = false;
 export const ENABLE_LEVEL_LOCK_HACK = true;
 
