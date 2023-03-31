@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ENABLE_LEVEL_LOCK_HACK } from '../constants/game-levels.constants';
+import { LevelService } from '../services/level.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,9 +9,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private levelService: LevelService) { }
+  clicks = 0;
 
   startGame() {
     this.router.navigate(['/levels']);
+  }
+  screenClick() {
+    this.clicks ++;
+    if(ENABLE_LEVEL_LOCK_HACK && this.clicks >= 5) {
+      this.levelService.setEnableLevelLockHack(true);
+    }
+  }
+  toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
   }
 }

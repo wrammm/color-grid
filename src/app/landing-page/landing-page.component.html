@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" (click)="screenClick()">
     <div class="header">
       <h1>Color Memory</h1>
       <p>Test your memory and color recognition skills!</p>
@@ -9,7 +9,12 @@
       </p>
     </div>
     <div class="play-button">
-      <button (click)="startGame()">Get Started!</button>
+      <button mat-raised-button color="primary" (click)="startGame()">Get Started!</button>
+    </div>
+    <div style="position: absolute; right: 8px; bottom: 8px">
+      <button (click)="toggleFullScreen()" mat-mini-fab color="basic" aria-label="Full Screen Mode">
+        <mat-icon>fullscreen</mat-icon>
+      </button>
     </div>
   </div>
   

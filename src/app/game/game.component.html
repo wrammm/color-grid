@@ -1,13 +1,13 @@
 <div class="game-container">
     <div class="game-header">
         <h2>Level {{currentLevel.level}}</h2>
-        <button *ngIf="gameStarted == false" (click)="start()">Start</button>
+        <button mat-raised-button *ngIf="gameStarted == false" (click)="start()">Start</button>
         <h2 *ngIf="gameStarted == true">Fill cells with original color set.</h2>
-        <button *ngIf="gameStarted == true" (click)="submit()">Submit</button>
+        <button mat-raised-button *ngIf="gameStarted == true" (click)="submit()">Submit</button>
         <div class="colors-used-container" *ngIf="gameStarted == true">
             <div *ngFor="let color of colorSetUsed">
                 <div class="colors-used-child">
-                    <button [style.backgroundColor]="color" (click)="selectedColorChoice(color)"></button>
+                    <button mat-raised-button [style.backgroundColor]="color" (click)="selectedColorChoice(color)"></button>
                 </div>
             </div>
         </div>
@@ -46,5 +46,70 @@
         <div class="game-cell" (click)="selectedCell(13)" [style.backgroundColor]="this.colorsShown[13]"></div>
         <div class="game-cell" (click)="selectedCell(14)" [style.backgroundColor]="this.colorsShown[14]"></div>
         <div class="game-cell" (click)="selectedCell(15)" [style.backgroundColor]="this.colorsShown[15]"></div>
+    </div>
+    <div *ngIf="currentLevel.squares == 25" class="cells-container-25">
+        <div class="game-cell" (click)="selectedCell(0)" [style.backgroundColor]="this.colorsShown[0]"></div>
+        <div class="game-cell" (click)="selectedCell(1)" [style.backgroundColor]="this.colorsShown[1]"></div>
+        <div class="game-cell" (click)="selectedCell(2)" [style.backgroundColor]="this.colorsShown[2]"></div>
+        <div class="game-cell" (click)="selectedCell(3)" [style.backgroundColor]="this.colorsShown[3]"></div>
+        <div class="game-cell" (click)="selectedCell(4)" [style.backgroundColor]="this.colorsShown[4]"></div>
+        <div class="game-cell" (click)="selectedCell(5)" [style.backgroundColor]="this.colorsShown[5]"></div>
+        <div class="game-cell" (click)="selectedCell(6)" [style.backgroundColor]="this.colorsShown[6]"></div>
+        <div class="game-cell" (click)="selectedCell(7)" [style.backgroundColor]="this.colorsShown[7]"></div>
+        <div class="game-cell" (click)="selectedCell(8)" [style.backgroundColor]="this.colorsShown[8]"></div>
+        <div class="game-cell" (click)="selectedCell(9)" [style.backgroundColor]="this.colorsShown[9]"></div>
+        <div class="game-cell" (click)="selectedCell(10)" [style.backgroundColor]="this.colorsShown[10]"></div>
+        <div class="game-cell" (click)="selectedCell(11)" [style.backgroundColor]="this.colorsShown[11]"></div>
+        <div class="game-cell" (click)="selectedCell(12)" [style.backgroundColor]="this.colorsShown[12]"></div>
+        <div class="game-cell" (click)="selectedCell(13)" [style.backgroundColor]="this.colorsShown[13]"></div>
+        <div class="game-cell" (click)="selectedCell(14)" [style.backgroundColor]="this.colorsShown[14]"></div>
+        <div class="game-cell" (click)="selectedCell(15)" [style.backgroundColor]="this.colorsShown[15]"></div>
+        <div class="game-cell" (click)="selectedCell(16)" [style.backgroundColor]="this.colorsShown[16]"></div>
+        <div class="game-cell" (click)="selectedCell(17)" [style.backgroundColor]="this.colorsShown[17]"></div>
+        <div class="game-cell" (click)="selectedCell(18)" [style.backgroundColor]="this.colorsShown[18]"></div>
+        <div class="game-cell" (click)="selectedCell(19)" [style.backgroundColor]="this.colorsShown[19]"></div>
+        <div class="game-cell" (click)="selectedCell(20)" [style.backgroundColor]="this.colorsShown[20]"></div>
+        <div class="game-cell" (click)="selectedCell(21)" [style.backgroundColor]="this.colorsShown[21]"></div>
+        <div class="game-cell" (click)="selectedCell(22)" [style.backgroundColor]="this.colorsShown[22]"></div>
+        <div class="game-cell" (click)="selectedCell(23)" [style.backgroundColor]="this.colorsShown[23]"></div>
+        <div class="game-cell" (click)="selectedCell(24)" [style.backgroundColor]="this.colorsShown[24]"></div>
+    </div>
+    <div *ngIf="currentLevel.squares == 36" class="cells-container-36">
+        <div class="game-cell" (click)="selectedCell(0)" [style.backgroundColor]="this.colorsShown[0]"></div>
+        <div class="game-cell" (click)="selectedCell(1)" [style.backgroundColor]="this.colorsShown[1]"></div>
+        <div class="game-cell" (click)="selectedCell(2)" [style.backgroundColor]="this.colorsShown[2]"></div>
+        <div class="game-cell" (click)="selectedCell(3)" [style.backgroundColor]="this.colorsShown[3]"></div>
+        <div class="game-cell" (click)="selectedCell(4)" [style.backgroundColor]="this.colorsShown[4]"></div>
+        <div class="game-cell" (click)="selectedCell(5)" [style.backgroundColor]="this.colorsShown[5]"></div>
+        <div class="game-cell" (click)="selectedCell(6)" [style.backgroundColor]="this.colorsShown[6]"></div>
+        <div class="game-cell" (click)="selectedCell(7)" [style.backgroundColor]="this.colorsShown[7]"></div>
+        <div class="game-cell" (click)="selectedCell(8)" [style.backgroundColor]="this.colorsShown[8]"></div>
+        <div class="game-cell" (click)="selectedCell(9)" [style.backgroundColor]="this.colorsShown[9]"></div>
+        <div class="game-cell" (click)="selectedCell(10)" [style.backgroundColor]="this.colorsShown[10]"></div>
+        <div class="game-cell" (click)="selectedCell(11)" [style.backgroundColor]="this.colorsShown[11]"></div>
+        <div class="game-cell" (click)="selectedCell(12)" [style.backgroundColor]="this.colorsShown[12]"></div>
+        <div class="game-cell" (click)="selectedCell(13)" [style.backgroundColor]="this.colorsShown[13]"></div>
+        <div class="game-cell" (click)="selectedCell(14)" [style.backgroundColor]="this.colorsShown[14]"></div>
+        <div class="game-cell" (click)="selectedCell(15)" [style.backgroundColor]="this.colorsShown[15]"></div>
+        <div class="game-cell" (click)="selectedCell(16)" [style.backgroundColor]="this.colorsShown[16]"></div>
+        <div class="game-cell" (click)="selectedCell(17)" [style.backgroundColor]="this.colorsShown[17]"></div>
+        <div class="game-cell" (click)="selectedCell(18)" [style.backgroundColor]="this.colorsShown[18]"></div>
+        <div class="game-cell" (click)="selectedCell(19)" [style.backgroundColor]="this.colorsShown[19]"></div>
+        <div class="game-cell" (click)="selectedCell(20)" [style.backgroundColor]="this.colorsShown[20]"></div>
+        <div class="game-cell" (click)="selectedCell(21)" [style.backgroundColor]="this.colorsShown[21]"></div>
+        <div class="game-cell" (click)="selectedCell(22)" [style.backgroundColor]="this.colorsShown[22]"></div>
+        <div class="game-cell" (click)="selectedCell(23)" [style.backgroundColor]="this.colorsShown[23]"></div>
+        <div class="game-cell" (click)="selectedCell(24)" [style.backgroundColor]="this.colorsShown[24]"></div>
+        <div class="game-cell" (click)="selectedCell(25)" [style.backgroundColor]="this.colorsShown[25]"></div>
+        <div class="game-cell" (click)="selectedCell(26)" [style.backgroundColor]="this.colorsShown[26]"></div>
+        <div class="game-cell" (click)="selectedCell(27)" [style.backgroundColor]="this.colorsShown[27]"></div>
+        <div class="game-cell" (click)="selectedCell(28)" [style.backgroundColor]="this.colorsShown[28]"></div>
+        <div class="game-cell" (click)="selectedCell(29)" [style.backgroundColor]="this.colorsShown[29]"></div>
+        <div class="game-cell" (click)="selectedCell(30)" [style.backgroundColor]="this.colorsShown[30]"></div>
+        <div class="game-cell" (click)="selectedCell(31)" [style.backgroundColor]="this.colorsShown[31]"></div>
+        <div class="game-cell" (click)="selectedCell(32)" [style.backgroundColor]="this.colorsShown[32]"></div>
+        <div class="game-cell" (click)="selectedCell(33)" [style.backgroundColor]="this.colorsShown[33]"></div>
+        <div class="game-cell" (click)="selectedCell(34)" [style.backgroundColor]="this.colorsShown[34]"></div>
+        <div class="game-cell" (click)="selectedCell(35)" [style.backgroundColor]="this.colorsShown[35]"></div>
     </div>
 </div>
