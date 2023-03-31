@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import { ResultDialogComponent } from './result-dialog/result-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import {MatButtonModule} from '@angular/material/button';
     AppComponent,
     LandingPageComponent,
     GameComponent,
-    LevelViewComponent
+    LevelViewComponent,
+    ResultDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     MatIconModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

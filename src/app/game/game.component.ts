@@ -4,6 +4,8 @@ import { GameLevel } from '../classes/game-level';
 import { COLOR_SET } from '../constants/color-set';
 import { GAME_LEVELS } from '../constants/game-levels.constants';
 import { LevelService } from '../services/level.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ResultDialogComponent } from '../result-dialog/result-dialog.component';
 
 @Component({
   selector: 'app-game',
@@ -12,7 +14,7 @@ import { LevelService } from '../services/level.service';
 })
 export class GameComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private levelService: LevelService) { }
+  constructor(public dialog: MatDialog, private router: Router, private levelService: LevelService) { }
 
   levels = GAME_LEVELS;
   colorSet = COLOR_SET;
@@ -80,11 +82,19 @@ export class GameComponent implements OnInit {
 
   submit() {
     if (this.colorsSolution.toString() === this.colorsShown.toString()) {
-      alert('You win!');
-      this.goToNextLevel();
+      const dialogRef = this.dialog.open(ResultDialogComponent, {
+        data: {status: 'You win!'},
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        this.goToNextLevel();
+      });
     } else {
-      alert('Incorrect, try again.');
-      this.replaySameLevel();
+      const dialogRef = this.dialog.open(ResultDialogComponent, {
+        data: {status: 'Incorrect, try again.'},
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        this.replaySameLevel();
+      });
     }
   }
 
