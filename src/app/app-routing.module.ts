@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { GameComponent } from './game/game.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LevelViewComponent } from './level-view/level-view.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
   },
   {
     path: 'game',
-    component: GameComponent
+    component: GameComponent,
+    canActivate: [AuthGuard],
   },
   { path: '**', 
     component: LandingPageComponent
