@@ -1,44 +1,115 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    // justify-content: center;
-    width: 100%;
-    height: 100%;
-    background-color: deepskyblue;
-  }
-  
-  .header {
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-    // color: #333;
-    margin-bottom: 0.5rem;
-  }
-  
-  p {
-    font-size: 1.5rem;
-    // color: #666;
-  }
-  
-  .game-description {
-    max-width: 600px;
-    text-align: center;
-    margin: 1.5rem;
-  }
-  
-  .play-button button {
-    background-color: #4caf50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom,
+      #f44336,
+      #e91e63,
+      #9c27b0,
+      #673ab7,
+      #3f51b5,
+      #2196f3,
+      #03a9f4,
+      #00bcd4,
+      #009688);
+}
+
+.header {
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.game-description {
+  max-width: 600px;
+  text-align: center;
+  margin: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.play-button button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+// .outline {
+//   // text-shadow: white 1px 0 10px;
+//   text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em blue;
+//   // text-shadow: 
+//   // -1px -1px 0 black, 
+//   // 1px -1px 0 black, 
+//   // -1px 1px 0 black, 
+//   // 1px 1px 0 black;
+// }
+.outline {
+  text-shadow: 
+  5px 1px 3px rgba(255, 255, 255, 0.8), 
+  -1px -1px 3px rgba(255, 255, 255, 0.8), 
+  5px -1px 3px rgba(255, 255, 255, 0.8), 
+  -1px 1px 3px rgba(255, 255, 255, 0.8);
+
+  margin-right: 8px;
+}
+
+
+
+
+.color-1 {
+  color: #f44336;
+}
+
+.color-2 {
+  color: #e91e63;
+}
+
+.color-3 {
+  color: #9c27b0;
+}
+
+.color-4 {
+  color: #673ab7;
+}
+
+.color-5 {
+  color: #3f51b5;
+}
+
+.color-6 {
+  color: transparent;
+  /* For the space character */
+}
+
+.color-7 {
+  color: #2196f3;
+}
+
+.color-8 {
+  color: #03a9f4;
+}
+
+.color-9 {
+  color: #00bcd4;
+}
+
+.color-10 {
+  color: #009688;
+}

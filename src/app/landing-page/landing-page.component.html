@@ -1,20 +1,32 @@
 <div class="container" (click)="screenClick()">
-    <div class="header">
-      <h1>Color Memory</h1>
-      <p>Test your memory and color recognition skills!</p>
-    </div>
-    <div class="game-description">
-      <p>
-        Color Memory is a fun and challenging game where you'll be shown a grid of cells, each with a different color. The colors will only be revealed for a short time. Then, it's up to you to put the original colors back into the cells. Are you up for the challenge?
-      </p>
-    </div>
-    <div class="play-button">
-      <button mat-raised-button color="primary" (click)="startGame()">Get Started!</button>
-    </div>
-    <div style="position: absolute; right: 8px; bottom: 8px">
-      <button (click)="toggleFullScreen()" mat-icon-button color="basic" aria-label="Full Screen Mode">
-        <mat-icon>fullscreen</mat-icon>
-      </button>
-    </div>
+  <div class="header">
+    <h1>
+      <span class="color-1 outline">C</span>
+      <span class="color-2 outline">o</span>
+      <span class="color-3 outline">l</span>
+      <span class="color-4 outline">o</span>
+      <span class="color-5 outline">r</span>
+      <span class="color-6 outline">&nbsp;</span>
+      <span class="color-7 outline">G</span>
+      <span class="color-8 outline">r</span>
+      <span class="color-9 outline">i</span>
+      <span class="color-10 outline">d</span>
+    </h1>    
+    <p>Test your memory and color recognition skills!</p>
   </div>
-  
+  <div class="game-description">
+    <p>
+      Color Grid offers an engaging and stimulating gaming experience that challenges you to memorize a vibrant grid
+      filled with uniquely colored cells. As the colors vanish, it's your mission to accurately restore the original
+      arrangement. Are you ready to conquer this captivating color challenge?
+    </p>
+  </div>
+  <div class="play-button">
+    <button mat-raised-button [ngStyle]="{'backgroundColor':'#f44336'}" (click)="startGame()">Get Started!</button>
+  </div>
+  <div style="position: absolute; right: 8px; bottom: 8px">
+    <button (click)="toggleFullScreen()" mat-icon-button [ngStyle]="{'color':'white'}" aria-label="Full Screen Mode">
+      <mat-icon>fullscreen</mat-icon>
+    </button>
+  </div>
+</div>
