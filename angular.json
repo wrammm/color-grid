@@ -107,5 +107,7 @@
       }
     }
   },
-  "defaultProject": "color-memory"
+  "cli": {
+    "analytics": false
+  }
 }

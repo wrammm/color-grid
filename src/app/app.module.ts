@@ -8,10 +8,10 @@ import { GameComponent } from './game/game.component';
 import { LevelViewComponent } from './level-view/level-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
+import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
+import {MatLegacyButtonModule as MatButtonModule} from '@angular/material/legacy-button';
 import { ResultDialogComponent } from './result-dialog/result-dialog.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatLegacyDialogModule as MatDialogModule} from '@angular/material/legacy-dialog';
 
 
 @NgModule({

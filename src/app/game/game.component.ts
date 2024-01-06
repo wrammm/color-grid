@@ -4,7 +4,7 @@ import { GameLevel } from '../classes/game-level';
 import { COLOR_SET } from '../constants/color-set';
 import { GAME_LEVELS } from '../constants/game-levels.constants';
 import { LevelService } from '../services/level.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { ResultDialogComponent } from '../result-dialog/result-dialog.component';
 
 @Component({
