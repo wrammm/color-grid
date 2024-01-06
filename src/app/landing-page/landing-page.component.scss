@@ -5,16 +5,19 @@
   // justify-content: center;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(to bottom,
-      #f44336,
-      #e91e63,
-      #9c27b0,
-      #673ab7,
-      #3f51b5,
-      #2196f3,
-      #03a9f4,
-      #00bcd4,
-      #009688);
+  overflow-y: auto;
+  background-image: linear-gradient(
+    to bottom,
+    #f44336,
+    #e91e63,
+    #9c27b0,
+    #673ab7,
+    #3f51b5,
+    #2196f3,
+    #03a9f4,
+    #00bcd4,
+    #009688
+  );
 }
 
 .header {
@@ -49,29 +52,25 @@ p {
   font-size: 16px;
   cursor: pointer;
   border-radius: 4px;
+  margin-bottom: 16px;
 }
 
 // .outline {
 //   // text-shadow: white 1px 0 10px;
 //   text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em blue;
-//   // text-shadow: 
-//   // -1px -1px 0 black, 
-//   // 1px -1px 0 black, 
-//   // -1px 1px 0 black, 
+//   // text-shadow:
+//   // -1px -1px 0 black,
+//   // 1px -1px 0 black,
+//   // -1px 1px 0 black,
 //   // 1px 1px 0 black;
 // }
 .outline {
-  text-shadow: 
-  5px 1px 3px rgba(255, 255, 255, 0.8), 
-  -1px -1px 3px rgba(255, 255, 255, 0.8), 
-  5px -1px 3px rgba(255, 255, 255, 0.8), 
-  -1px 1px 3px rgba(255, 255, 255, 0.8);
+  text-shadow: 5px 1px 3px rgba(255, 255, 255, 0.8),
+    -1px -1px 3px rgba(255, 255, 255, 0.8),
+    5px -1px 3px rgba(255, 255, 255, 0.8), -1px 1px 3px rgba(255, 255, 255, 0.8);
 
   margin-right: 8px;
 }
-
-
-
 
 .color-1 {
   color: #f44336;
